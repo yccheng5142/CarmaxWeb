@@ -2,7 +2,7 @@ const exampleData = [
     {
       CarModelId: '#1',
       Year: 2024,
-      CarBrand: 'Toyota',
+      CarBrand: 'TOYOTA',
       CarModelName:'Rav4',
       ProductNo: "C93CT42P02",
       ProductName: '全景後視影像顯示系統',
@@ -12,7 +12,7 @@ const exampleData = [
     {
       CarModelId: '#2',
       Year: 2024,
-      CarBrand: 'Toyota',
+      CarBrand: 'TOYOTA',
       CarModelName:'Rav4',
       ProductNo: "C93CT42P03",
       ProductName: '全景前視+左右側影像顯示系統',
@@ -22,7 +22,7 @@ const exampleData = [
     {
         CarModelId: '#3',
         Year: 2024,
-        CarBrand: 'Toyota',
+        CarBrand: 'TOYOTA',
         CarModelName:'Rav4',
         ProductNo: 'C99D942P01',
         ProductName: '4G旗艦升級套件(AR導航)',
@@ -32,7 +32,7 @@ const exampleData = [
       {
         CarModelId: '#4',
         Year: '2024',
-        CarBrand: 'Toyota',
+        CarBrand: 'TOYOTA',
         CarModelName:'Rav4',
         ProductNo: 'C99D90AP01',
         ProductName: 'DRIVE+ Link 9吋升級套件(AR導航)',
@@ -42,7 +42,7 @@ const exampleData = [
       {
         CarModelId: '#5',
         Year: '2024',
-        CarBrand: 'Toyota',
+        CarBrand: 'TOYOTA',
         CarModelName:'Rav4',
         ProductNo: 'C93CT0AP02',
         ProductName: '環景影像顯示系統(ECU+線束+配件包)',

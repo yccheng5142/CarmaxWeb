@@ -13,7 +13,7 @@ function Component(props) {
   const [carModelState, setCarModelState] = useState(props.dropdownCarItems[2].itemLists);
 
   const carBrandChange = (carBrand) => {
-    if (carBrand === 'Toyota') {
+    if (carBrand === 'TOYOTA') {
       setCarModelState(props.dropdownCarItems[2].itemListsToyota);
       console.log('carBrand:', props.dropdownCarItems[2].itemListsToyota);
     } else if (carBrand === 'LEXUS') {
@@ -201,7 +201,6 @@ function Component(props) {
           sm={6}
           lg={3}
         >
-
           <Card
             sx={{
               p: 1,

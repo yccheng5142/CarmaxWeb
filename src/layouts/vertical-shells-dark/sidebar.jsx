@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Logo } from 'src/components/base/logo';
+import { Logo } from 'src/components/base/logo_sidebar';
 import { Scrollbar } from 'src/components/base/scrollbar';
 import { useSidebarContext } from 'src/contexts/sidebar-context';
 import { neutral } from 'src/theme/colors';

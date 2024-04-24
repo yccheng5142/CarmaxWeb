@@ -127,12 +127,12 @@ const dropdownCarItems = [
   {
     itemName: '品牌',
     itemNameEng: 'Brand',
-    itemLists: ['Toyota', 'LEXUS',]
+    itemLists: ['TOYOTA', 'LEXUS',]
   },
   {
     itemName: '車型',
     itemLists:[],
-    itemListsToyota: ['Rva4','COROLLA CROSS'],
+    itemListsToyota: ['Rav4','COROLLA CROSS'],
     itemListsLEXUS: ['RX200','UX200'],
   },
   {
@@ -161,13 +161,13 @@ const dropdownProductItems = [
   },
   {
     itemName: '品牌',
-    itemLists: ['Toyota', 'LEXUS',]
+    itemLists: ['TOYOTA', 'LEXUS',]
   },
 
   {
     itemName: '車型',
     itemLists: [],
-    itemListsToyota: ['Rva4', 'COROLLA CROSS'],
+    itemListsToyota: ['Rav4', 'COROLLA CROSS'],
     itemListsLEXUS: ['RX200', 'UX200'],
   },
 ]
@@ -196,7 +196,19 @@ const Page = () => {
         flex={1}
         display="flex"
         flexDirection="column"
-        py={{xs: 2,sm:3 }}>
+        py={{xs: 2,sm:3 }}
+        sx={{
+          backgroundImage: (theme) =>
+            `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/placeholders/covers/login.jpg')`,
+          backgroundSize: 'cover',
+          '@media (max-width:600px)': {
+
+            backgroundImage: 'none',
+          },
+        }}
+      >
+        
+        
         <Container disableGutters maxWidth="xl">
           <PageHeading
             sx={{
@@ -262,7 +274,7 @@ const Page = () => {
 
 
           {/*======================= Function ======================= */}
-          <Box
+          {/* <Box
             px={{
               xs: 2,
               sm: 3,
@@ -273,30 +285,31 @@ const Page = () => {
             }}
             
           >
-            {/* <Typography
+            <Typography
               gutterBottom
               variant="h4"
             >
               This is the Home page for the Carmax Merchandise
-            </Typography> */}
+            </Typography>
             <Typography variant="subtitle1">
 
             </Typography>
           
-          </Box>
+          </Box> */}
 
 
           {/*========================Main=======================*/}
           <Box
             px={{
               xs: 1,
-              sm: 1,
+              sm: 0,
             }}
             pt={{
               xs: 1,
               sm: 1,
             }}
-            
+
+           
           >
           <ApplicationUiHorizontalMenusTabs onTabChange  = {handleTabChange} />
            
@@ -304,8 +317,8 @@ const Page = () => {
           {isCarOrderTablesListPageOpen ===0  &&<CarOrderCard dropdownCarItems={dropdownCarItems}/>}
           
           {isCarOrderTablesListPageOpen ===1  &&<ProductOrdersOrderCard dropdownProductItems={dropdownProductItems}/>}
-          {/* {isCarOrderTablesListPageOpen ===0  &&<CarOrderTablesListPage dropdownCarItems={dropdownCarItems}/>} */}
-          {/* {isCarOrderTablesListPageOpen ===1  &&<ProductOrdersTable dropdownProductItems={dropdownProductItems}/>} */}
+          {/* {isCarOrderTablesListPageOpen ===0  && <CarOrderTablesListPage dropdownCarItems={dropdownCarItems}/>} */}
+          {/* {isCarOrderTablesListPageOpen ===1  && <ProductOrdersTable dropdownProductItems={dropdownProductItems}/>} */}
 
           </Box>
         </Container>

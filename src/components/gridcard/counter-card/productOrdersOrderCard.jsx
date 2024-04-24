@@ -79,7 +79,7 @@ function Component(props) {
     </Grid>
   }
   const carBrandChange = (carBrand) => {
-    if (carBrand === 'Toyota') {
+    if (carBrand === 'TOYOTA') {
       setCarModelState(props.dropdownProductItems[4].itemListsToyota);
       console.log('carBrand:', props.dropdownProductItems[4].itemListsToyota);
     } else if (carBrand === 'LEXUS') {
@@ -107,7 +107,7 @@ function Component(props) {
 
         flexDirection="column"
         justifyContent="flex-start"
-        sx={{ width: '-webkit-fill-available' }}
+        sx={{ width: '-webkit-fill-available', }}
       >
 
         <Typography
@@ -117,6 +117,7 @@ function Component(props) {
             paddingRight: '10px',
             width: '100%', // 让 Typography 宽度与父元素相同
             whiteSpace: 'nowrap', // 防止文本换行
+            
           }}
         >
           品項查詢:
@@ -132,8 +133,9 @@ function Component(props) {
           value={inputProductValue} // 將輸入的值設置為組件的狀態
           py={1}
           InputProps={{
-            style: { fontSize: '20px' } // 調整文字大小為 20 像
+            style: { fontSize: '20px', } // 調整文字大小為 20 像
           }}
+          sx={{  paddingBottom: '20px'}}
         />
 
         {/* ============================================= */}

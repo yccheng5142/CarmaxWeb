@@ -19,6 +19,7 @@ export const SidebarProvider = ({ children }) => {
   // Handle hover state persistence on route changes
   useEffect(() => {
     if (isSidebarCollapsed) {
+      console.log("setIsSidebarHovered")
       setIsSidebarHovered(false);
     }
 

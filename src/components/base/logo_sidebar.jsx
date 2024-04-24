@@ -64,12 +64,12 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
           }}
           overlap="circular"
           color={dark ? 'success' : 'info'}
-          
+          // badgeContent="1.0"
         >
           <Box
             sx={{
-              width: 80,
-              height: 80,
+              width: 75,
+              height: 75,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -82,10 +82,10 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
 
             }}
           >
-            <Avatar alt="Carmax Logo" src='src\img\logo\carmax.png'
+            <Avatar alt="Carmax Logo" src='src\img\logo\carmax-withe.png'
               sx={{
-                width: 80, // 设置图像宽度
-                height: 80, // 设置图像高度
+                width: 60, // 设置图像宽度
+                height: 60, // 设置图像高度
               }}
             />
 
@@ -98,8 +98,8 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
               letterSpacing: '-.45px',
               ml: '-31px',
               mt: '34px',
-              lineHeight: '20px',
-              paddingLeft: '50px', // 在四个方向上都增加 10px 的内边距
+              lineHeight: '18px',
+              paddingLeft: '30px', // 在四个方向上都增加 10px 的内边距
             }}
             fontWeight={500}
           >

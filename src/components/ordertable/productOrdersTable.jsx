@@ -28,6 +28,7 @@ import {
   Tooltip,
   Typography,
   useTheme,
+  Grid,
 } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -90,14 +91,14 @@ function Component(props) {
 
 
   // ==================================Function==================================
-  const carBrandChange = (carBrand)=>{
-    if (carBrand ==='Toyota'){
+  const carBrandChange = (carBrand) => {
+    if (carBrand === 'TOYOTA') {
       setCarModelState(props.dropdownProductItems[4].itemListsToyota);
-      console.log('carBrand:',props.dropdownProductItems[4].itemListsToyota);
-    }else if(carBrand ==='LEXUS'){
+      console.log('carBrand:', props.dropdownProductItems[4].itemListsToyota);
+    } else if (carBrand === 'LEXUS') {
       setCarModelState(props.dropdownProductItems[4].itemListsLEXUS);
-      console.log('carBrand:',props.dropdownProductItems[4].itemListsLEXUS);
-    }else{
+      console.log('carBrand:', props.dropdownProductItems[4].itemListsLEXUS);
+    } else {
       setCarModelState(props.dropdownProductItems[4].itemLists);
     }
 
@@ -110,95 +111,103 @@ function Component(props) {
   const handleChangePage = (_event, newPage) => {
     // console.log('handleChangePage');
     setCurrentPagePage(newPage);
-   
+
   };
 
 
-  const handleChangePageOrder = ()=>{
-    if (exampleData.length>10){
+  const handleChangePageOrder = () => {
+    if (exampleData.length > 10) {
       const startIndex = page * 10;
       const endIndex = startIndex + 10;
       SliceOrders = exampleData.slice(startIndex, endIndex);
       setRowsPerPageOrder(SliceOrders);
       // console.log({SliceOrders});
-    }else{
+    } else {
       SliceOrders = exampleData.slice(0, 10);
       setRowsPerPageOrder(SliceOrders);
     }
 
   }
 
-  
+
 
   // ==================================Main==================================
 
   return (
     <Card>
-      <Box 
-        flex={1}
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
-        paddingLeft={1}
-        paddingTop={2}
-        sx={{
-          backgroundColor: (theme) =>
-            theme.palette.mode === 'dark' ? alpha(theme.palette.neutral[25], 0.02) : 'neutral.25',
-        }}
-      >
-
-        <Typography
-          sx= {{ color: 'red', fontSize: '2em', paddingRight: '10px'}}
-        >
-        品項查詢:
-        </Typography>
-
-        <TextField 
-         id="ProductSearch" 
-         label={
-          <span style={{ fontSize: '20px'}}>請填寫(輸入關鍵字)</span> // 设置 label 的样式
-         } 
-         variant="outlined" 
-         onChange={handleInputProductChange} // 設置輸入變化時的回調函數
-         value={inputProductValue} // 將輸入的值設置為組件的狀態
-         InputProps={{
-          style: { fontSize: '20px' } 
-         }}
-        />
-      </Box>
-      <Box
-        flex={1}
-        display="flex"
-        flexDirection="row"
-        sx={{
-          backgroundColor: (theme) =>
-            theme.palette.mode === 'dark' ? alpha(theme.palette.neutral[25], 0.02) : 'neutral.25',
-        }}
-      >
-        <Box display="flex"
+      <Grid container spacing={0}>
+        <Grid item xs={12} md={12}>
+          <Box
+            flex={1}
+            display="flex"
             flexDirection="row"
-            justifyContent="flex-start" 
-        >
-          
-          {/* ============================================= */}
-          <WebTdData itemName={props.dropdownProductItems[0].itemName}
-            itemLists={props.dropdownProductItems[0].itemLists}></WebTdData>
+            alignItems="center"
+            paddingLeft={1}
+            paddingTop={2}
+            sx={{
+              backgroundColor: (theme) =>
+                theme.palette.mode === 'dark' ? alpha(theme.palette.neutral[25], 0.02) : 'neutral.25',
+            }}
+          >
 
-          <WebTdData itemName={props.dropdownProductItems[1].itemName}
-            itemLists={props.dropdownProductItems[1].itemLists}
-            ></WebTdData>
+            <Typography
+              sx={{
+                color: 'red',
+                fontSize: '2em',
+                paddingRight: '10px'
+              }}
+            >
+              品項查詢:
+            </Typography>
+
+            <TextField
+              id="ProductSearch"
+              label={
+                <span style={{ fontSize: '20px' }}>請填寫(輸入關鍵字)</span> // 设置 label 的样式
+              }
+              variant="outlined"
+              onChange={handleInputProductChange} // 設置輸入變化時的回調函數
+              value={inputProductValue} // 將輸入的值設置為組件的狀態
+              InputProps={{
+                style: { fontSize: '8px', width: '500px' }
+              }}
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={12}>
+          <Box
+            flex={1}
+            display="flex"
+            flexDirection="row"
+            sx={{
+              backgroundColor: (theme) =>
+                theme.palette.mode === 'dark' ? alpha(theme.palette.neutral[25], 0.02) : 'neutral.25',
+            }}
+          >
+            <Box display="flex"
+              flexDirection="row"
+              justifyContent="flex-start"
+            >
+
+              {/* ============================================= */}
+              <WebTdData itemName={props.dropdownProductItems[0].itemName}
+                itemLists={props.dropdownProductItems[0].itemLists}></WebTdData>
+
+              <WebTdData itemName={props.dropdownProductItems[1].itemName}
+                itemLists={props.dropdownProductItems[1].itemLists}
+              ></WebTdData>
 
 
-          <WebTdData itemName={props.dropdownProductItems[2].itemName}
-            itemLists={props.dropdownProductItems[2].itemLists} ></WebTdData>
+              <WebTdData itemName={props.dropdownProductItems[2].itemName}
+                itemLists={props.dropdownProductItems[2].itemLists} ></WebTdData>
 
-          <WebTdData itemName={props.dropdownProductItems[3].itemName}
-            itemLists={props.dropdownProductItems[3].itemLists}
-            onClickFunction={carBrandChange}></WebTdData>
+              <WebTdData itemName={props.dropdownProductItems[3].itemName}
+                itemLists={props.dropdownProductItems[3].itemLists}
+                onClickFunction={carBrandChange}></WebTdData>
 
-          <WebTdData itemName={props.dropdownProductItems[4].itemName}
-            itemLists={carModelState} ></WebTdData>
-          {/* {dropdownCarItems.map((carItem) => (
+              <WebTdData itemName={props.dropdownProductItems[4].itemName}
+                itemLists={carModelState} ></WebTdData>
+              {/* {dropdownCarItems.map((carItem) => (
               <Box 
                 p={1}
                 display="flex"
@@ -216,53 +225,61 @@ function Component(props) {
               </Box>
               ))
           } */}
-        </Box>
-       
-        <Box 
-          display="flex" 
-          p={1}
-          flex={1}
-          flexDirection="row" 
-          justifyContent="flex-end" 
-          >
-           <Button
-            variant="contained"
-            size="medium"
-            p={3}
-            sx={{
-             fontSize: '2em',
-              mt: {
-                xs: 2,
-                md: 0,
-              },
-              padding: '1px 50px',
-              minWidth: '10px' // 设置按钮的最小宽度
-            }}
-          >清除
-          </Button>
+            </Box>
 
-          <Box marginLeft={1} /> {/* 这里添加了间隔 */}
+            <Box
+              display="flex"
+              p={1}
+              flex={1}
+              flexDirection="row"
+              justifyContent="flex-end"
+            >
+              <Button
+                variant="contained"
+                size="medium"
+                p={3}
+                sx={{
+                  fontSize: '2em',
+                  mt: {
+                    xs: 2,
+                    md: 0,
+                  },
+                  padding: '1px 50px',
+                  minWidth: '10px' // 设置按钮的最小宽度
+                }}
+              >清除
+              </Button>
 
-          <Button
-            variant="contained"
-            size="medium"
-            p={3}
-            sx={{
-              fontSize: '2em',
-              mt: {
-                xs: 2,
-                md: 0,
-              },
-              padding: '1px 50px'
-            }}
-          >搜尋
-          </Button>
-        </Box>
-        
-        
-        {/* ============================================= */}
-        
-      </Box>
+              <Box marginLeft={1} /> {/* 这里添加了间隔 */}
+
+              <Button
+                variant="contained"
+                size="medium"
+                p={3}
+                sx={{
+                  fontSize: '2em',
+                  mt: {
+                    xs: 2,
+                    md: 0,
+                  },
+                  padding: '1px 50px'
+                }}
+              >搜尋
+              </Button>
+            </Box>
+
+
+            {/* ============================================= */}
+
+          </Box>
+        </Grid>
+      </Grid>
+
+
+      <Divider />
+      <Divider />
+      <Divider />
+      <Divider />
       <Divider />
       <Box
         px={2}
@@ -287,7 +304,7 @@ function Component(props) {
               {rowsPerPageOrder.map((order, index) => (
                 <React.Fragment key={index}>
                   <TableRow hover>
-                  <TableCell>
+                    <TableCell>
                       <Box>
                         <Typography variant="h5">{order.CarModelId}</Typography>
                       </Box>
@@ -309,7 +326,7 @@ function Component(props) {
                       </Box>
                     </TableCell>
 
-                    
+
 
                     <TableCell>
                       <Box>
@@ -334,9 +351,9 @@ function Component(props) {
                     </TableCell>
 
 
-                    
-                
-                
+
+
+
                   </TableRow>
                   <TableRowDivider />
                 </React.Fragment>
@@ -355,9 +372,9 @@ function Component(props) {
           }}
         >
           <PaginationRange
-           count={totalPage}
-           page={currentPage}
-           onPageChange={handleChangePage}
+            count={totalPage}
+            page={currentPage}
+            onPageChange={handleChangePage}
           //  onRowsPerPageChange={handleChangeRowsPerPage}
           ></PaginationRange>
           {/* <TablePagination
