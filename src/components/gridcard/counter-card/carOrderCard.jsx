@@ -160,12 +160,12 @@ function Component(props) {
           sm={6}
           lg={3}
       >
-{/* 
+
         <ApplicationUiStackedListsOpenTickets Data= {exampleData}>
 
-        </ApplicationUiStackedListsOpenTickets> */}
+        </ApplicationUiStackedListsOpenTickets>
       </Grid>
-      {exampleData.map((item) => (
+      {/* {exampleData.map((item) => (
         <Grid
           xs={12}
           sm={6}
@@ -243,7 +243,7 @@ function Component(props) {
             </Box>
           </Card>
         </Grid>
-      ))}
+      ))} */}
 
 
     </Grid>

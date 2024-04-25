@@ -13,7 +13,11 @@ import {
   ListItem,
   ListItemText,
   Typography,
+  Unstable_Grid2 as Grid,
+  useTheme
 } from '@mui/material';
+// import { alpha, Box, Button, Card, Unstable_Grid2 as Grid, Typography, useTheme } from '@mui/material';
+
 import { formatDistance, subMinutes } from 'date-fns';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -80,12 +84,13 @@ const issues = [
     status: 'Pending',
   },
 ];
-const IssueItem = ({ title, avatarSrc, userName, minutesAgo, status }) => {
+const IssueItem = ({ CarBrand, CarModelId, CarModelName, ProductName, ProductNo,SaleLoction,SellType,Year }) => {
   const { t } = useTranslation();
-  const color = statusToColorMap[status];
+  const theme = useTheme();
+  // const color = statusToColorMap[status];
   return (
     <>
-      <ListItem
+      {/* <ListItem
         sx={{
           p: 2,
         }}
@@ -151,6 +156,8 @@ const IssueItem = ({ title, avatarSrc, userName, minutesAgo, status }) => {
             </Box>
           }
         />
+
+
         <Box ml={1}>
           <Chip
             variant="filled"
@@ -159,7 +166,86 @@ const IssueItem = ({ title, avatarSrc, userName, minutesAgo, status }) => {
             label={t(status)}
           />
         </Box>
-      </ListItem>
+      </ListItem> */}
+ <Grid
+          xs={12}
+          sm={6}
+          lg={3}
+        >
+          
+          <Card
+            sx={{
+              p: 1,
+              boxShadow: `
+                      0 0.47rem 2.2rem ${alpha(theme.palette.success.main, 0.04)}, 
+                      0 0.94rem 1.4rem ${alpha(theme.palette.success.main, 0.04)}, 
+                      0 0.25rem 0.54rem ${alpha(theme.palette.success.main, 0.06)}, 
+                      0 0.13rem 0.19rem ${alpha(theme.palette.success.main, 0.04)}`,
+            }}
+          >
+
+            <Typography
+              variant="subtitle2"
+              color="text.secondary"
+            >
+              {t(Year)}    {t(CarModelName)}
+            </Typography>
+
+            <Box
+              pt={1}
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+            >
+
+              <Box
+                display="flex"
+                flexDirection="column" // 设置为 column 方向
+                alignItems="flex-start"
+                justifyContent="space-between"
+                width="50%" // 设置宽度为50%
+              >
+                <Typography
+                  variant="h3"
+                  sx={{
+                    color: '#14191e', //black
+                    textAlign: 'left', // 文本左对齐
+                  }}
+                >
+                  {t(ProductName)}
+                </Typography>
+
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    color: '#14191e', //black
+                  }}
+                >
+                  {t(ProductNo)}
+                </Typography>
+              </Box>
+
+              <Box
+                pt={1}
+                display="flex"
+
+                alignItems="center"
+                justifyContent="flex-end"
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: 'success.main',
+                  }}
+                >
+                  {t(SellType)} {t(SaleLoction)}
+                </Typography>
+              </Box>
+            </Box>
+          </Card>
+        </Grid>
+
+
       <Divider />
     </>
   );
@@ -169,40 +255,40 @@ const IssueItem = ({ title, avatarSrc, userName, minutesAgo, status }) => {
 
 
 function Component(props) {
-  console.log(props)
+  // console.log(props)
   const { t } = useTranslation();
   return (
     <Card
       sx={{
         position: 'relative',
         backgroundColor: (theme) =>
-          theme.palette.mode === 'dark' ? alpha(theme.palette.neutral[50], 0.02) : 'neutral.50',
+          theme.palette.mode === 'dark' ? alpha(theme.palette.neutral[50], 0.03) : 'neutral.50',
       }}
     >
-      <CardHeader
+      {/* <CardHeader
         sx={{
-          p: 2,
+          // p: 2,
           '& .MuiCardHeader-action': {
             position: 'absolute',
-            right: (theme) => theme.spacing(2),
-            top: (theme) => theme.spacing(1.5),
-            mt: 0,
+            // right: (theme) => theme.spacing(2),
+            // top: (theme) => theme.spacing(1.5),
+            // mt: 0,
           },
         }}
-        action={
-          <IconButton
-            size="small"
-            color="secondary"
-          >
-            <MoreVertTwoToneIcon />
-          </IconButton>
-        }
-        title={t('Open tickets')}
-      />
+        // action={
+        //   <IconButton
+        //     size="small"
+        //     color="secondary"
+        //   >
+        //     <MoreVertTwoToneIcon />
+        //   </IconButton>
+        // }
+        // title={t('Open tickets')}
+      /> */}
       <Box
         sx={{
-          mx: 2,
-          mb: 2,
+          mx: 0,
+          mb: 0,
           p: 0,
           height: 370,
           backgroundColor: 'background.paper',
@@ -211,10 +297,8 @@ function Component(props) {
       >
         <Scrollbar>
           <List disablePadding>
-            {props.Data.length>0 && props.Data.map((issue, index) => (
-              <IssueItem
-                key={index}
-                {...issue}
+            {props.Data.length >0 && props.Data.map((issue, index) => (
+              <IssueItem key={index} {...issue}
               />
             ))}
           </List>

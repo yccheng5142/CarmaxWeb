@@ -229,7 +229,7 @@ function Component(props) {
 
             <Box
               display="flex"
-              p={1}
+              p={2}
               flex={1}
               flexDirection="row"
               justifyContent="flex-end"
@@ -244,10 +244,13 @@ function Component(props) {
                     xs: 2,
                     md: 0,
                   },
-                  padding: '1px 20px',
+                  padding: '0px 20px',
                   minWidth: '10px' // 设置按钮的最小宽度
                 }}
-              >清除
+                
+              >
+                 <Typography variant="h4">清除</Typography>
+               
               </Button>
 
               <Box marginLeft={1} /> {/* 这里添加了间隔 */}
@@ -262,9 +265,11 @@ function Component(props) {
                     xs: 2,
                     md: 0,
                   },
-                  padding: '1px 20px'
+                  padding: '0px 20px'
                 }}
-              >搜尋
+              >
+                <Typography variant="h4">搜尋</Typography>
+                
               </Button>
             </Box>
 

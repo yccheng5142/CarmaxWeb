@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import ApplicationUiDropdownsBasic from 'src/application-ui/dropdowns/basic/basic';
 import TdData from 'src/components/function/tdData';
 import exampleData from 'src/components/exampledata/merchandiseData';
+import ApplicationUiStackedListsOpenTickets from 'src/components/mobileCarTickets/open-tickets.jsx'
+
 function Component(props) {
 
   const { t } = useTranslation();
@@ -223,7 +225,19 @@ function Component(props) {
 
 
       </Box>
-      {exampleData.map((item) => (
+
+
+      <Grid
+          xs={12}
+          sm={6}
+          lg={3}
+      >
+
+        <ApplicationUiStackedListsOpenTickets Data= {exampleData}>
+
+        </ApplicationUiStackedListsOpenTickets>
+      </Grid>
+      {/* {exampleData.map((item) => (
         <Grid
           xs={12}
           sm={6}
@@ -301,7 +315,7 @@ function Component(props) {
             </Box>
           </Card>
         </Grid>
-      ))}
+      ))} */}
     </Grid>
   );
 }
