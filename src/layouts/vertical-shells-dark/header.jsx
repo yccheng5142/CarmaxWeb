@@ -3,6 +3,8 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
+import { deepOrange, green, indigo, red } from '@mui/material/colors';
+
 import {
   alpha,
   AppBar,
@@ -55,7 +57,8 @@ export const Header = (props) => {
     <HeaderWrapper
       role="banner"
       sx={{
-        height: scroll === 'down' ? HEADER_HEIGHT : HEADER_HEIGHT * 1.5,
+        // height: scroll === 'down' ? HEADER_HEIGHT : HEADER_HEIGHT * 1.5,
+        height: HEADER_HEIGHT * 1.5,
         width: {
           xs: '100%',
           lg: `calc(100% - ${isSidebarCollapsed ? SIDEBAR_WIDTH_COLLAPSED : SIDEBAR_WIDTH}px)`,
@@ -219,8 +222,23 @@ export const Header = (props) => {
                 width: 36,
               }}
             /> */}
+
+            <Avatar
+              sx={{
+                width: 40,
+                height: 40,
+                backgroundColor: deepOrange[500],
+                color: 'common.white',
+              }}
+            >
+              KOKO
+            </Avatar>
+
           </IconButton>
-          {/* {!lgUp && (
+
+
+
+          {!lgUp && (
             <IconButton
               onClick={onMobileNav}
               color="inherit"
@@ -237,7 +255,11 @@ export const Header = (props) => {
             >
               <MenuRoundedIcon />
             </IconButton>
-          )} */}
+          )}
+
+
+
+
         </Stack>
       </Stack>
     </HeaderWrapper>

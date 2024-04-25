@@ -10,13 +10,15 @@ const WebTdData = ({ itemName, itemLists, onClickFunction }) => {
             <Box
                 p={1}
                 display="flex"
-                flexDirection="row">
+                flexDirection="row"
+                alignItems="center" // 垂直对齐
+            >
                 <Typography
                     sx={{
-                        color: 'red',
-                        fontSize: '2em',
-                        paddingRight: '10px',
-                        paddingTop: '8px',
+                        color: 'black',
+                        fontSize: '1.5em',
+                        paddingRight: '5px',
+                        paddingTop: '0px',
                         
                     }}
                 >

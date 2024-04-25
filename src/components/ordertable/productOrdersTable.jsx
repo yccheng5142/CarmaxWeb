@@ -152,8 +152,8 @@ function Component(props) {
 
             <Typography
               sx={{
-                color: 'red',
-                fontSize: '2em',
+                color: 'black',
+                fontSize: '1.5em',
                 paddingRight: '10px'
               }}
             >
@@ -169,7 +169,7 @@ function Component(props) {
               onChange={handleInputProductChange} // 設置輸入變化時的回調函數
               value={inputProductValue} // 將輸入的值設置為組件的狀態
               InputProps={{
-                style: { fontSize: '8px', width: '500px' }
+                style: { fontSize: '8px', width: '460px' }
               }}
             />
           </Box>
@@ -244,7 +244,7 @@ function Component(props) {
                     xs: 2,
                     md: 0,
                   },
-                  padding: '1px 50px',
+                  padding: '1px 20px',
                   minWidth: '10px' // 设置按钮的最小宽度
                 }}
               >清除
@@ -262,7 +262,7 @@ function Component(props) {
                     xs: 2,
                     md: 0,
                   },
-                  padding: '1px 50px'
+                  padding: '1px 20px'
                 }}
               >搜尋
               </Button>
@@ -277,10 +277,7 @@ function Component(props) {
 
 
       <Divider />
-      <Divider />
-      <Divider />
-      <Divider />
-      <Divider />
+   
       <Box
         px={2}
         pb={2}
@@ -290,13 +287,13 @@ function Component(props) {
             <TableHeadWrapper>
               <TableRow>
                 <TableCell>{t('流水號')}</TableCell>
-                <TableCell align="center">{t('品項')}</TableCell>
-                <TableCell align="right">{t('販賣類型')}</TableCell>
-                <TableCell align="right">{t('仕向地')}</TableCell>
-                <TableCell align="left">{t('年度')}</TableCell>
-                <TableCell align="left">{t('品牌')}</TableCell>
-                <TableCell align="left">{t('車型')}</TableCell>
-                <TableCell align="center">{t('料號')}</TableCell>
+                <TableCell>{t('品項')}</TableCell>
+                <TableCell>{t('販賣類型')}</TableCell>
+                <TableCell>{t('仕向地')}</TableCell>
+                <TableCell>{t('年度')}</TableCell>
+                <TableCell>{t('品牌')}</TableCell>
+                <TableCell>{t('車型')}</TableCell>
+                <TableCell>{t('料號')}</TableCell>
 
               </TableRow>
             </TableHeadWrapper>

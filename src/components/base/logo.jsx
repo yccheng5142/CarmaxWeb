@@ -94,9 +94,9 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
           <Typography
             component="span"
             sx={{
-              fontSize: '18px',
+              fontSize: '16px',
               letterSpacing: '-.45px',
-              ml: '-31px',
+              ml: '-49px',
               mt: '34px',
               lineHeight: '20px',
               paddingLeft: '50px', // 在四个方向上都增加 10px 的内边距

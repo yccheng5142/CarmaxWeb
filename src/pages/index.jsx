@@ -89,6 +89,7 @@ const Page = () => {
 
   return (
     <>
+
       <Helmet heading="Homepage" />
 
       <Box
@@ -96,7 +97,7 @@ const Page = () => {
         flex={1}
         display="flex"
         flexDirection="column"
-        py={{ xs: 2, sm: 3 }}
+        py={{ xs: 0, sm: 3 }}
         sx={{
 
           backgroundImage: (theme) =>
@@ -110,21 +111,40 @@ const Page = () => {
       >
 
         <Box
-         sx={{
-          backgroundColor: 'red',
-         }}
+
+          sx={{
+            opacity: 0.9,
+
+            [theme.breakpoints.only('xs')]: {
+              backgroundImage: (theme) =>
+                `url("/placeholders/covers/login.jpg")`,
+              backgroundSize: 'cover',
+              filter: 'grayscale(80%)',
+              backgroundSize: 'cover',
+              height: '100%',
+              width: '100%',
+              borderRadius: 'inherit',
+            },
+          }}
+          py={{
+            xs: 4,
+            sm: 0,
+            lg: 6,
+            xl: 8,
+          }}
         >
 
 
-        {/*========================Main=======================*/}
+          {/*========================Main=======================*/}
 
 
 
-        <ApplicationUiHorizontalMenusTabs onTabChange={handleTabChange} />
+
         </Box>
 
-
         <Container disableGutters maxWidth="xl">
+          <ApplicationUiHorizontalMenusTabs onTabChange={handleTabChange} />
+
           <Box
             px={{
               xs: 1,
@@ -132,15 +152,15 @@ const Page = () => {
             }}
             pt={{
               xs: 1,
-              sm: 1,
+              sm: 0,
             }}
 
           >
-            {isCarOrderTablesListPageOpen === 0 && <CarOrderCard dropdownCarItems={dropdownCarItems} />}
+            {/* {isCarOrderTablesListPageOpen === 0 && <CarOrderCard dropdownCarItems={dropdownCarItems} />} */}
 
-            {isCarOrderTablesListPageOpen === 1 && <ProductOrdersOrderCard dropdownProductItems={dropdownProductItems} />}
-            {/* {isCarOrderTablesListPageOpen ===0  && <CarOrderTablesListPage dropdownCarItems={dropdownCarItems}/>} */}
-            {/* {isCarOrderTablesListPageOpen ===1  && <ProductOrdersTable dropdownProductItems={dropdownProductItems}/>} */}
+            {/* {isCarOrderTablesListPageOpen === 1 && <ProductOrdersOrderCard dropdownProductItems={dropdownProductItems} />} */}
+            {isCarOrderTablesListPageOpen ===0  && <CarOrderTablesListPage dropdownCarItems={dropdownCarItems}/>}
+            {isCarOrderTablesListPageOpen ===1  && <ProductOrdersTable dropdownProductItems={dropdownProductItems}/>}
 
           </Box>
 

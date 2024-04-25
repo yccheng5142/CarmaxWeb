@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import ApplicationUiDropdownsBasic from 'src/application-ui/dropdowns/basic/basic';
 import exampleData from 'src/components/exampledata/merchandiseData';
 import TdData from 'src/components/function/tdData';
+import ApplicationUiStackedListsOpenTickets from 'src/components/mobileCarTickets/open-tickets.jsx'
 function Component(props) {
 
   const { t } = useTranslation();
@@ -117,48 +118,6 @@ function Component(props) {
           <TdData itemName={props.dropdownCarItems[3].itemName}
             itemLists={props.dropdownCarItems[3].itemLists}></TdData>
 
-
-
-
-
-          {/* {props.dropdownCarItems.map((carItem) => (
-            // <Box
-            //   p={1}
-            //   display="flex"
-            //   flexDirection="row">
-            <tr style={{width: '100%' }}>
-              <td style={{width: '30%' }}>
-
-                <Typography
-                  sx={{ 
-                    color: 'red', 
-                    fontSize: '2em', 
-                    paddingRight: '1px', 
-                    paddingBottom: '20px',
-                    width: '100%', // 让 Typography 宽度与父元素相同
-                    whiteSpace: 'nowrap', // 防止文本换行 '20px' 
-                  }}
-                >
-                  {carItem.itemName}:
-                </Typography>
-              </td>
-
-              <td style={{width: '70%' }}>
-                <ApplicationUiDropdownsBasic
-                  labelName={carItem.itemName}
-                  dropDownList={carItem.itemLists}
-                />
-              </td>
-
-            </tr>
-
-            // </Box>
-
-          ))
-          } */}
-
-
-
         </table>
         <Box
           sx={{ display: 'flex', justifyContent: 'flex-end' }}
@@ -194,13 +153,25 @@ function Component(props) {
 
       </Box>
       {/* ============================================= */}
+      
 
+      <Grid
+          xs={12}
+          sm={6}
+          lg={3}
+      >
+{/* 
+        <ApplicationUiStackedListsOpenTickets Data= {exampleData}>
+
+        </ApplicationUiStackedListsOpenTickets> */}
+      </Grid>
       {exampleData.map((item) => (
         <Grid
           xs={12}
           sm={6}
           lg={3}
         >
+          
           <Card
             sx={{
               p: 1,
@@ -256,7 +227,7 @@ function Component(props) {
               <Box
                 pt={1}
                 display="flex"
-                
+
                 alignItems="center"
                 justifyContent="flex-end"
               >
@@ -266,7 +237,7 @@ function Component(props) {
                     color: 'success.main',
                   }}
                 >
-                   {t(item.SellType)} {t(item.SaleLoction)}
+                  {t(item.SellType)} {t(item.SaleLoction)}
                 </Typography>
               </Box>
             </Box>

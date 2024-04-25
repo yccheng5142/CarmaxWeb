@@ -81,22 +81,21 @@ function Component(props) {
   const [rowsPerPageOrder, setRowsPerPageOrder] = useState([]);
 
 
-  const [dropdownCarItems,setDropdownCarItems] =useState(props.dropdownCarItems);
+  const [dropdownCarItems, setDropdownCarItems] = useState(props.dropdownCarItems);
   const [carModelState, setCarModelState] = useState(props.dropdownCarItems[2].itemLists);
   const [currentBrand, setCurrentBrand] = useState("");
   useEffect(() => {
     handleChangePageOrder();
   }, [currentPage]); // 空数组作为依赖项，表示仅在组件挂载时运行一次
 
-// 點選車型 給予不同車型的LIST
+  // 點選車型 給予不同車型的LIST
 
   const carBrandChange = (carBrand) => {
-    if (carBrand !== currentBrand){
-          console.log('carBrandChange');
-          setCarModelState([]);
-          
-        }
-      
+    if (carBrand !== currentBrand) {
+      console.log('carBrandChange');
+      setCarModelState([]);
+    }
+
     if (carBrand === 'TOYOTA') {
       setCurrentBrand(carBrand);
       setCarModelState(props.dropdownCarItems[2].itemListsToyota);
@@ -109,10 +108,6 @@ function Component(props) {
       setCurrentBrand("");
       setCarModelState(props.dropdownCarItems[2].itemLists);
     }
-    // if (carBrand !== currentBrand){
-    //   console.log('carBrandChange');
-    //   setCarModelState([]);
-    // }
   }
 
   const handleResize = () => {
@@ -124,40 +119,39 @@ function Component(props) {
     // console.log('handleChangePage');
     setCurrentPagePage(newPage);
   };
-  const handleChangePageOrder = ()=>{
-    if (exampleData.length>10){
+  const handleChangePageOrder = () => {
+    if (exampleData.length > 10) {
       const startIndex = page * 10;
       const endIndex = startIndex + 10;
       SliceOrders = exampleData.slice(startIndex, endIndex);
       setRowsPerPageOrder(SliceOrders);
       // console.log({SliceOrders});
-    }else{
+    } else {
       SliceOrders = exampleData.slice(0, 10);
       setRowsPerPageOrder(SliceOrders);
     }
 
   }
 
-
-
   return (
-    <Card>
+    <Card
+    >
       <Box
-        p={2}
+        p={1}
         flex={1}
         display="flex"
         flexDirection="row"
         sx={{
           backgroundColor: (theme) =>
             theme.palette.mode === 'dark' ? alpha(theme.palette.neutral[50], 0.02) : 'neutral.25',
+            
         }}
       >
         <Box display="flex"
-            flexDirection="row"
-            justifyContent="flex-start" 
-            
+          flexDirection="row"
+          justifyContent="flex-start"
         >
-          
+
           <WebTdData itemName={props.dropdownCarItems[0].itemName}
             itemLists={props.dropdownCarItems[0].itemLists}></WebTdData>
 
@@ -193,49 +187,51 @@ function Component(props) {
               ))
           } */}
         </Box>
-       
-        <Box 
-          display="flex" 
+
+        <Box
+          display="flex"
           p={1}
           flex={1}
-          flexDirection="row" 
-          justifyContent="flex-end" 
-          >
-           <Button
+          flexDirection="row"
+          justifyContent="flex-end"
+        >
+          <Button
             variant="contained"
             size="medium"
-            
+
             p={3}
             sx={{
-             fontSize: '2em',
+              
               mt: {
                 xs: 2,
                 md: 0,
               },
-              padding: '1px 50px'
+              padding: '1px 20px'
             }}
-          >清除
+          >
+            <Typography variant="h5">清除</Typography>
+            
           </Button>
           <Box marginLeft={1} /> {/* 这里添加了间隔 */}
           <Button
             variant="contained"
             size="medium"
-            p={3}
+            p={4}
             sx={{
-              fontSize: '2em',
               mt: {
                 xs: 2,
                 md: 0,
               },
-              padding: '1px 50px'
+              padding: '1px 20px'
             }}
-          >搜尋
+          >
+            <Typography variant="h5">搜尋</Typography>
           </Button>
         </Box>
-      
-        
+
+
         {/* ============================================= */}
-        
+
       </Box>
       <Divider />
       <Box
@@ -246,20 +242,21 @@ function Component(props) {
           <TableWrapper>
             <TableHeadWrapper>
               <TableRow>
-              <TableCell>{t('流水號')}</TableCell>
-                <TableCell align="left">{t('年度')}</TableCell>
-                <TableCell align="left">{t('品牌')}</TableCell>
-                <TableCell align="left">{t('車型')}</TableCell>
-                <TableCell align="left">{t('料號')}</TableCell>
-                <TableCell align="left">{t('品項')}</TableCell>
-                <TableCell align="left">{t('販賣類型')}</TableCell>
-                <TableCell align="left">{t('仕向地')}</TableCell>
                 
+                <TableCell>{t('流水號')}</TableCell>
+                <TableCell>{t('年度')}</TableCell>
+                <TableCell>{t('品牌')}</TableCell>
+                <TableCell>{t('車型')}</TableCell>
+                <TableCell>{t('料號')}</TableCell>
+                <TableCell>{t('品項')}</TableCell>
+                <TableCell>{t('販賣類型')}</TableCell>
+                <TableCell>{t('仕向地')}</TableCell>
+
               </TableRow>
             </TableHeadWrapper>
             <TableBody>
               {rowsPerPageOrder.map((order, index) => (
-                
+
                 <React.Fragment key={index}>
                   <TableRow hover>
                     <TableCell>
@@ -284,7 +281,7 @@ function Component(props) {
                       </Box>
                     </TableCell>
 
-                    
+
 
                     <TableCell>
                       <Box>
@@ -472,11 +469,11 @@ function Component(props) {
             },
           }}
         >
-         <PaginationRange
-           count={totalPage}
-           page={currentPage}
-           onPageChange={handleChangePage}
-          
+          <PaginationRange
+            count={totalPage}
+            page={currentPage}
+            onPageChange={handleChangePage}
+
           ></PaginationRange>
         </Box>
       </Box>

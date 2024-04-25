@@ -5,16 +5,21 @@ export const useSidebarDrawer = () => {
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   const [open, setOpen] = useState(lgUp);
   const screenResize = useCallback(() => {
+    
     if (!lgUp) {
       setOpen(false);
     } else {
       setOpen(true);
     }
   }, [lgUp]);
+
   useEffect(() => {
-    console.log('test');
+    
     screenResize();
   }, [lgUp]);
+
+
+
   const handleToggle = useCallback(() => {
     setOpen((prevState) => !prevState);
   }, []);

@@ -11,7 +11,7 @@ const TdData = ({ itemName, itemLists,onClickFunction}) => {
           <td style={{ width: '30%' }}>
             <Typography
               sx={{
-                color: 'red',
+                color: 'black',
                 fontSize: '2em',
                 paddingRight: '1px',
                 paddingBottom: '20px',

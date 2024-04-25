@@ -112,7 +112,7 @@ function Component(props) {
 
         <Typography
           sx={{
-            color: 'red',
+            color: 'black',
             fontSize: '2em',
             paddingRight: '10px',
             width: '100%', // 让 Typography 宽度与父元素相同
