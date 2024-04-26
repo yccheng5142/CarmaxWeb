@@ -31,11 +31,6 @@ import { useTranslation } from 'react-i18next';
 import { TableRowDivider, TableWrapper } from 'src/components/base/styles/table';
 import exampleData from '../exampledata/merchandiseData';
 import PaginationRange from 'src/components/Pagination/ranges/ranges.jsx'
-// import ApplicationUiDropdownsAlternate from 'src/application-ui/dropdowns/alternate/alternate';
-// import ApplicationUiDropdownsBasic from 'src/application-ui/dropdowns/basic/basic';
-// import ApplicationUiButtonsPrimary from 'src/application-ui/buttons/primary/primary';
-
-
 
 const IconButtonWrapper = styled(IconButton)(() => ({
   transform: 'scale(1)',
@@ -116,7 +111,6 @@ function Component(props) {
   };
 
   const handleChangePage = (_event, newPage) => {
-    // console.log('handleChangePage');
     setCurrentPagePage(newPage);
   };
   const handleChangePageOrder = () => {
@@ -153,17 +147,21 @@ function Component(props) {
         >
 
           <WebTdData itemName={props.dropdownCarItems[0].itemName}
-            itemLists={props.dropdownCarItems[0].itemLists}></WebTdData>
+            itemLists={props.dropdownCarItems[0].itemLists}
+            selectItem={props.changeCurrentData}></WebTdData>
 
           <WebTdData itemName={props.dropdownCarItems[1].itemName}
             itemLists={props.dropdownCarItems[1].itemLists}
-            onClickFunction={carBrandChange}></WebTdData>
+            onClickFunction={carBrandChange}
+            selectItem={props.changeCurrentData}></WebTdData>
 
           <WebTdData itemName={props.dropdownCarItems[2].itemName}
-            itemLists={carModelState} ></WebTdData>
+            itemLists={carModelState} 
+            selectItem={props.changeCurrentData}></WebTdData>
 
           <WebTdData itemName={props.dropdownCarItems[3].itemName}
-            itemLists={props.dropdownCarItems[3].itemLists}></WebTdData>
+            itemLists={props.dropdownCarItems[3].itemLists}
+            selectItem={props.changeCurrentData}></WebTdData>
 
 
           {/* ============================================= */}

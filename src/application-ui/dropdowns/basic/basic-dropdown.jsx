@@ -9,15 +9,9 @@ import { useEffect, useState } from 'react';
 
 
 const BasicDropdown = (props) => {
-  // console.log('BasicDropdown props:',props);
   let {labelName,dropDownList} = props
-  // console.log('BasicDropdown props:', props);
-  // console.log('BasicDropdown labelNames:', props.props.labelName);
-  // console.log('BasicDropdown dropDownList:', props.props.dropDownList);
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedItem, setSelectedItem] = useState('');
-
-  
   const open = Boolean(anchorEl);
 
 
@@ -67,7 +61,7 @@ const BasicDropdown = (props) => {
 
       
       <Menu
-        id = { labelName}
+        id = {labelName}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}

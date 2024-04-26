@@ -49,6 +49,52 @@ const exampleData = [
         SaleLoction: 'Taiwan',
         SellType:'DIO'
       },
+      {
+        CarModelId: '#6',
+        Year: '2024',
+        CarBrand: 'TOYOTA',
+        CarModelName:'Rav4',
+        ProductNo: 'C04CE42P02',
+        ProductName: 'LCM動態智能顯示導航HUD(CAN)',
+        SaleLoction: 'Taiwan',
+        SellType:'DIO'
+      },
+      {
+        CarModelId: '#7',
+        Year: '2024',
+        CarBrand: 'TOYOTA',
+        CarModelName:'Rav4',
+        ProductNo: 'C90CB42M21',
+        ProductName: '電子後視鏡系統(後視)',
+        SaleLoction: 'Taiwan',
+        SellType:'DIO'
+      },
+      {
+        CarModelId: '#8',
+        Year: '2024',
+        CarBrand: 'TOYOTA',
+        CarModelName:'COROLLA CROSS',
+        ProductNo: 'P76340A00921',
+        ProductName: 'COROLLA CROSS盲區偵測警示系統(右)',
+        SaleLoction: 'Taiwan',
+        SellType:'PIO'
+      },
+      {
+        CarModelId: '#9',
+        Year: '2024',
+        CarBrand: 'TOYOTA',
+        CarModelName:'COROLLA CROSS',
+        ProductNo: 'C18CS00K01',
+        ProductName: '儀錶板胎壓顯示',
+        SaleLoction: 'Taiwan',
+        SellType:'JP'
+      },
+
+
+
+
+
+
   ];
 
   export default exampleData;

@@ -13,6 +13,9 @@ import ProductOrdersTable from 'src/components/ordertable/productOrdersTable.jsx
 import ApplicationUiHorizontalMenusTabs from 'src/components/tabs/tabs.jsx';
 import CarOrderCard from 'src/components/gridcard/counter-card/carOrderCard.jsx';
 import ProductOrdersOrderCard from 'src/components/gridcard/counter-card/productOrdersOrderCard.jsx';
+import watchWindowSize from 'src/hooks/watch-windwo';
+import exampleData from 'src/components/exampledata/merchandiseData';
+// import { initDataObject, setDataObject } from 'src/hooks/use-data-object';
 
 // import ApplicationUiTablesOrdersList from 'src/application-ui/tables/orders-list/orders-list';
 
@@ -39,6 +42,7 @@ const dropdownCarItems = [
     itemNameEng: 'Location',
     itemLists: ['Taiwan', 'JP', 'test']
   },
+  
 
 ]
 
@@ -71,21 +75,29 @@ const dropdownProductItems = [
   },
 ]
 
+// const initData = initDataObject(dropdownCarItems)
 
 const Page = () => {
   const theme = useTheme();
   const { t } = useTranslation();
-  // const [employees,setEmployees] = useState({});
+
+  const isComputerScreen = watchWindowSize();
   const [isCarOrderTablesListPageOpen, setIsCarOrderTablesListPageOpen] = useState(0);
-  const isMobile = useMediaQuery('(max-width:780px)');
-  const [carSearchState, setCarSearchState] = useState(dropdownCarItems);
+  // const [CarOrderTablesListData, setCarOrderTablesList] = useState(initData);
+  const [ProductrOrderTablesListData, setProductrOrderTablesListData] = useState([{}]);
+
+  // const [carSearchState, setCarSearchState] = useState(dropdownCarItems);
 
   const handleTabChange = (tabIndex) => {
     setIsCarOrderTablesListPageOpen(tabIndex);
     console.log('tabIndex:', tabIndex)
   };
 
+ 
+  // const onClickChangeCurrentData = (itemName, setItemData) => {
+  //   setDataObject(CarOrderTablesListData, itemName, setItemData)
 
+  // }
 
   return (
     <>
@@ -133,12 +145,7 @@ const Page = () => {
             xl: 8,
           }}
         >
-
-
           {/*========================Main=======================*/}
-
-
-
 
         </Box>
 
@@ -156,11 +163,37 @@ const Page = () => {
             }}
 
           >
-            {isCarOrderTablesListPageOpen === 0 && <CarOrderCard dropdownCarItems={dropdownCarItems} />}
 
-            {isCarOrderTablesListPageOpen === 1 && <ProductOrdersOrderCard dropdownProductItems={dropdownProductItems} />}
-            {/* {isCarOrderTablesListPageOpen ===0  && <CarOrderTablesListPage dropdownCarItems={dropdownCarItems}/>} */}
-            {/* {isCarOrderTablesListPageOpen ===1  && <ProductOrdersTable dropdownProductItems={dropdownProductItems}/>} */}
+            {(isComputerScreen === "computer") ?
+              (
+                <>
+                  {isCarOrderTablesListPageOpen === 0 &&
+                    <CarOrderTablesListPage
+                      dropdownCarItems={dropdownCarItems}
+                      // currentData={CarOrderTablesListData}
+                      // changeCurrentData={onClickChangeCurrentData} 
+                    />
+                  }
+                  {isCarOrderTablesListPageOpen === 1 && <ProductOrdersTable dropdownProductItems={dropdownProductItems} />}
+                </>
+              ) :
+              (
+                <>
+                  {isCarOrderTablesListPageOpen === 0 && <CarOrderCard dropdownCarItems={dropdownCarItems} />}
+                  {isCarOrderTablesListPageOpen === 1 && <ProductOrdersOrderCard dropdownProductItems={dropdownProductItems} />}
+                </>
+              )
+            }
+
+
+
+
+
+            {/* {isCarOrderTablesListPageOpen === 0 && <CarOrderCard dropdownCarItems={dropdownCarItems} />} */}
+
+            {/* {isCarOrderTablesListPageOpen === 1 && <ProductOrdersOrderCard dropdownProductItems={dropdownProductItems} />} */}
+            {/* {isCarOrderTablesListPageOpen === 0 && <CarOrderTablesListPage dropdownCarItems={dropdownCarItems} />}
+            {isCarOrderTablesListPageOpen === 1 && <ProductOrdersTable dropdownProductItems={dropdownProductItems} />} */}
 
           </Box>
 
