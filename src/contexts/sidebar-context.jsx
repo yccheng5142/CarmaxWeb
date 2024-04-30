@@ -6,14 +6,14 @@ import { usePathname } from 'src/hooks/use-pathname';
 const SidebarContext = createContext(null);
 
 export const SidebarProvider = ({ children }) => {
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
   const [isSidebarHovered, setIsSidebarHovered] = useState(false);
   const pathname = usePathname();
 
   // Toggle the sidebar collapsed state
   const toggleSidebarCollapsed = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed);
-    console.log("toggleSidebarCollapsed:"+isSidebarCollapsed);
+    console.log("setIsSidebarCollapsed:"+!isSidebarCollapsed);
   };
 
   // Handle hover state persistence on route changes

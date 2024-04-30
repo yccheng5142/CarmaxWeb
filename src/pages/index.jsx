@@ -15,7 +15,7 @@ import CarOrderCard from 'src/components/gridcard/counter-card/carOrderCard.jsx'
 import ProductOrdersOrderCard from 'src/components/gridcard/counter-card/productOrdersOrderCard.jsx';
 import watchWindowSize from 'src/hooks/watch-windwo';
 import exampleData from 'src/components/exampledata/merchandiseData';
-// import { initDataObject, setDataObject } from 'src/hooks/use-data-object';
+import { initDataObject, setDataObject } from 'src/hooks/use-data-object';
 
 // import ApplicationUiTablesOrdersList from 'src/application-ui/tables/orders-list/orders-list';
 
@@ -42,7 +42,7 @@ const dropdownCarItems = [
     itemNameEng: 'Location',
     itemLists: ['Taiwan', 'JP', 'test']
   },
-  
+
 
 ]
 
@@ -75,30 +75,38 @@ const dropdownProductItems = [
   },
 ]
 
-// const initData = initDataObject(dropdownCarItems)
 
+const CarOrderCurrentData = initDataObject();
+const ProductOrderCurrentData = initDataObject();
 const Page = () => {
   const theme = useTheme();
   const { t } = useTranslation();
 
   const isComputerScreen = watchWindowSize();
   const [isCarOrderTablesListPageOpen, setIsCarOrderTablesListPageOpen] = useState(0);
-  // const [CarOrderTablesListData, setCarOrderTablesList] = useState(initData);
-  const [ProductrOrderTablesListData, setProductrOrderTablesListData] = useState([{}]);
 
-  // const [carSearchState, setCarSearchState] = useState(dropdownCarItems);
+
+  // const [ProductrOrderTablesListData, setProductrOrderTablesListData] = useState([{}]);
+
+  const [carSearchState, setCarSearchState] = useState(dropdownCarItems);
 
   const handleTabChange = (tabIndex) => {
     setIsCarOrderTablesListPageOpen(tabIndex);
     console.log('tabIndex:', tabIndex)
   };
 
- 
-  // const onClickChangeCurrentData = (itemName, setItemData) => {
-  //   setDataObject(CarOrderTablesListData, itemName, setItemData)
 
-  // }
+  const onClickCarChangeCurrentData = (itemName, setItemData) => {
 
+    setDataObject(CarOrderCurrentData, itemName, setItemData)
+    console.log('CarOrderCurrentData:', CarOrderCurrentData)
+  }
+
+  const onClickProductChangeCurrentData = (itemName, setItemData) => {
+
+    setDataObject(ProductOrderCurrentData, itemName, setItemData)
+    console.log('ProductOrderCurrentData:', ProductOrderCurrentData)
+  }
   return (
     <>
 
@@ -170,11 +178,17 @@ const Page = () => {
                   {isCarOrderTablesListPageOpen === 0 &&
                     <CarOrderTablesListPage
                       dropdownCarItems={dropdownCarItems}
-                      // currentData={CarOrderTablesListData}
-                      // changeCurrentData={onClickChangeCurrentData} 
+                      currentData={CarOrderCurrentData}
+                      changeCurrentData={onClickCarChangeCurrentData}
                     />
                   }
-                  {isCarOrderTablesListPageOpen === 1 && <ProductOrdersTable dropdownProductItems={dropdownProductItems} />}
+                  {isCarOrderTablesListPageOpen === 1 &&
+                    <ProductOrdersTable
+                      dropdownProductItems={dropdownProductItems}
+                      currentData={ProductOrderCurrentData}
+                      changeCurrentData={onClickProductChangeCurrentData}
+
+                    />}
                 </>
               ) :
               (

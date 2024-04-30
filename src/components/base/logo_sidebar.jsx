@@ -1,8 +1,9 @@
 import { alpha, Avatar, Badge, Box, Icon, Link, SvgIcon, Typography, useTheme } from '@mui/material';
 import { RouterLink } from './router-link';
-
-export const Logo = ({ dark = false, isLinkStatic = false }) => {
+import carmaxWhiteLogo from 'src/img/logo/carmax-withe.png'
+export const Logo = ({ dark = false, isLinkStatic = false, isSidebarCollapsed,sidebarToggleSidebarHover }) => {
   const theme = useTheme();
+  console.log('isSidebarCollapsed:', isSidebarCollapsed)
   const color = dark
     ? theme.palette.common.white
     : theme.palette.mode === 'dark'
@@ -64,7 +65,7 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
           }}
           overlap="circular"
           color={dark ? 'success' : 'info'}
-          // badgeContent="1.0"
+        // badgeContent="1.0"
         >
           <Box
             sx={{
@@ -82,7 +83,7 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
 
             }}
           >
-            <Avatar alt="Carmax Logo" src='src\img\logo\carmax-withe.png'
+            <Avatar alt="Carmax Logo" src={carmaxWhiteLogo}
               sx={{
                 width: 60, // 设置图像宽度
                 height: 60, // 设置图像高度
@@ -90,21 +91,24 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
             />
 
           </Box>
+          {isSidebarCollapsed && (
+            <Typography
+              component="span"
+              sx={{
+                fontSize: '18px',
+                letterSpacing: '-.45px',
+                ml: '-31px',
+                mt: '34px',
+                lineHeight: '18px',
+                paddingLeft: '30px', // 在四个方向上都增加 10px 的内边距
 
-          <Typography
-            component="span"
-            sx={{
-              fontSize: '18px',
-              letterSpacing: '-.45px',
-              ml: '-31px',
-              mt: '34px',
-              lineHeight: '18px',
-              paddingLeft: '30px', // 在四个方向上都增加 10px 的内边距
-            }}
-            fontWeight={500}
-          >
-            車美仕商品倉儲平台
-          </Typography>
+              }}
+              fontWeight={500}
+            >
+              車美仕商品倉儲平台
+            </Typography>
+          )}
+
 
         </Badge>
 

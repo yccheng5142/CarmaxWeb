@@ -138,7 +138,7 @@ function Component(props) {
         sx={{
           backgroundColor: (theme) =>
             theme.palette.mode === 'dark' ? alpha(theme.palette.neutral[50], 0.02) : 'neutral.25',
-            
+
         }}
       >
         <Box display="flex"
@@ -148,20 +148,33 @@ function Component(props) {
 
           <WebTdData itemName={props.dropdownCarItems[0].itemName}
             itemLists={props.dropdownCarItems[0].itemLists}
-            selectItem={props.changeCurrentData}></WebTdData>
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
+          ></WebTdData>
 
           <WebTdData itemName={props.dropdownCarItems[1].itemName}
             itemLists={props.dropdownCarItems[1].itemLists}
+            onClickCurrentData={props.changeCurrentData}
+            currentData={props.currentData}
             onClickFunction={carBrandChange}
-            selectItem={props.changeCurrentData}></WebTdData>
+          // selectItem={props.changeCurrentData}
+          ></WebTdData>
 
           <WebTdData itemName={props.dropdownCarItems[2].itemName}
-            itemLists={carModelState} 
-            selectItem={props.changeCurrentData}></WebTdData>
+            itemLists={carModelState}
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
+          // selectItem={props.changeCurrentData}
+          ></WebTdData>
 
           <WebTdData itemName={props.dropdownCarItems[3].itemName}
             itemLists={props.dropdownCarItems[3].itemLists}
-            selectItem={props.changeCurrentData}></WebTdData>
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
+          // selectItem={props.changeCurrentData}
+          >
+
+          </WebTdData>
 
 
           {/* ============================================= */}
@@ -199,7 +212,7 @@ function Component(props) {
 
             p={3}
             sx={{
-              
+
               mt: {
                 xs: 2,
                 md: 0,
@@ -208,7 +221,7 @@ function Component(props) {
             }}
           >
             <Typography variant="h4">清除</Typography>
-            
+
           </Button>
           <Box marginLeft={1} /> {/* 这里添加了间隔 */}
           <Button
@@ -240,7 +253,7 @@ function Component(props) {
           <TableWrapper>
             <TableHeadWrapper>
               <TableRow>
-                
+
                 <TableCell>{t('流水號')}</TableCell>
                 <TableCell>{t('年度')}</TableCell>
                 <TableCell>{t('品牌')}</TableCell>

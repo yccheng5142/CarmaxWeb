@@ -11,7 +11,7 @@ import {
   useTheme,
 } from '@mui/material';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Logo } from 'src/components/base/logo_sidebar';
 import { Scrollbar } from 'src/components/base/scrollbar';
 import { useSidebarContext } from 'src/contexts/sidebar-context';
@@ -58,16 +58,24 @@ export const Sidebar = (props) => {
   };
   const { isSidebarCollapsed, isSidebarHovered, toggleSidebarCollapsed, toggleSidebarHover } =
     useSidebarContext();
+  const [sidebarToggleSidebarHover,setSidebarToggleSidebarHover] = useState(false)
   const handleMouseEnter = () => {
+    
     toggleSidebarHover(true);
+    // setSidebarToggleSidebarHover(true);
   };
   const handleMouseLeave = () => {
+    // console.log(false)
     toggleSidebarHover(false);
+    // setSidebarToggleSidebarHover(false);
   };
   const handleCollapseSidebar = () => {
     toggleSidebarCollapsed();
   };
   const theme = useTheme();
+
+
+
   const sidebarContent = (
     <SidebarWrapper
       component="nav"
@@ -121,9 +129,12 @@ export const Sidebar = (props) => {
         }}
         alignItems="center"
       >
+
         <Logo
           dark
           isLinkStatic
+          isSidebarCollapsed
+          sidebarToggleSidebarHover
         />
 
         {lgUp && (

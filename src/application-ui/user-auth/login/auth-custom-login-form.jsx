@@ -56,8 +56,8 @@ const schema = zod.object({
   }),
 });
 const defaultValues = {
-  email: '',
-  password: '',
+  email: '123',
+  password: '123',
 };
 export function AuthCustomLoginForm() {
   const router = useRouter();

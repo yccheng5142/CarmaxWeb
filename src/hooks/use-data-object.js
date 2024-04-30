@@ -1,36 +1,22 @@
 import React, { useState } from 'react';
 
-function initDataObject(dropdownData) {
-    // 使用 useState 定义状态
-    const [currentData, setCurrentData] = useState({
-    year:null,
-    carnmodel:null,
-    location:null,
-    });
-    
-    setCurrentData(currentData.carnmodel = 123)
-    // 在函数内部更新状态值
-    const updatedData = dropdownData.map(item => ({
-        const [item.name, setCurrentData] = useState(Null)
-    }));
+function initDataObject() {
+    console.log('initDataObject')
 
-    // 更新状态值并返回
-    setCurrentData(updatedData);
-    console.log("updatedData:",updatedData)
+    let currentData = {
+        年度:null,
+        品牌:null,
+        車型:null,
+        販賣類型:null,
+        仕向地:null
+    }
+
+    console.log("updatedData:", currentData);
     return currentData;
 }
 
-function setDataObject(currentData,itemName, setItemData) {
-    // 使用 useState 定义状态
-    const [Data, setData] = useState(currentData);
-    // 更新 currentData
-    const updatedData = {
-        ...currentData,
-        [itemName]: setItemData
-    };
-    
-    // 设置新的状态值
-    setData(updatedData);
-    return Data
+function setDataObject(currentData, itemName, setItemData) {
+    currentData[itemName] = setItemData
+    return currentData
 }
-export {initDataObject,setDataObject}
+export { initDataObject, setDataObject }

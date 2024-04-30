@@ -7,10 +7,11 @@ function watchWindowSize() {
     const updateWindowSize = () => {
         const windowWidth = window.innerWidth;
         const isComputer = windowWidth > 600 ? 'computer' : 'mobile';
-        console.log('windowWidth:',windowWidth)
+        // console.log('windowWidth:',windowWidth)
         setWindowSize(isComputer);
     };
         window.addEventListener('resize', updateWindowSize);
+        updateWindowSize()
     return () => {
         window.removeEventListener('resize', updateWindowSize);
     };

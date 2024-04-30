@@ -191,22 +191,37 @@ function Component(props) {
 
               {/* ============================================= */}
               <WebTdData itemName={props.dropdownProductItems[0].itemName}
-                itemLists={props.dropdownProductItems[0].itemLists}></WebTdData>
+                itemLists={props.dropdownProductItems[0].itemLists}
+                currentData={props.currentData}
+                onClickCurrentData={props.changeCurrentData}
+
+              ></WebTdData>
 
               <WebTdData itemName={props.dropdownProductItems[1].itemName}
                 itemLists={props.dropdownProductItems[1].itemLists}
+                currentData={props.currentData}
+                onClickCurrentData={props.changeCurrentData}
               ></WebTdData>
 
 
               <WebTdData itemName={props.dropdownProductItems[2].itemName}
-                itemLists={props.dropdownProductItems[2].itemLists} ></WebTdData>
+                itemLists={props.dropdownProductItems[2].itemLists}
+                currentData={props.currentData}
+                onClickCurrentData={props.changeCurrentData}
+              ></WebTdData>
 
               <WebTdData itemName={props.dropdownProductItems[3].itemName}
                 itemLists={props.dropdownProductItems[3].itemLists}
-                onClickFunction={carBrandChange}></WebTdData>
+                onClickFunction={carBrandChange}
+                currentData={props.currentData}
+                onClickCurrentData={props.changeCurrentData}
+              ></WebTdData>
 
               <WebTdData itemName={props.dropdownProductItems[4].itemName}
-                itemLists={carModelState} ></WebTdData>
+                itemLists={carModelState}
+                currentData={props.currentData}
+                onClickCurrentData={props.changeCurrentData}
+              ></WebTdData>
               {/* {dropdownCarItems.map((carItem) => (
               <Box 
                 p={1}
@@ -247,10 +262,10 @@ function Component(props) {
                   padding: '0px 20px',
                   minWidth: '10px' // 设置按钮的最小宽度
                 }}
-                
+
               >
-                 <Typography variant="h4">清除</Typography>
-               
+                <Typography variant="h4">清除</Typography>
+
               </Button>
 
               <Box marginLeft={1} /> {/* 这里添加了间隔 */}
@@ -269,7 +284,7 @@ function Component(props) {
                 }}
               >
                 <Typography variant="h4">搜尋</Typography>
-                
+
               </Button>
             </Box>
 
@@ -282,7 +297,7 @@ function Component(props) {
 
 
       <Divider />
-   
+
       <Box
         px={2}
         pb={2}

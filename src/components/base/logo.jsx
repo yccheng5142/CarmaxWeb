@@ -1,6 +1,6 @@
 import { alpha, Avatar, Badge, Box, Icon, Link, SvgIcon, Typography, useTheme } from '@mui/material';
 import { RouterLink } from './router-link';
-
+import carmaxLogo from 'src/img/logo/carmax.png'
 export const Logo = ({ dark = false, isLinkStatic = false }) => {
   const theme = useTheme();
   const color = dark
@@ -82,7 +82,7 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
 
             }}
           >
-            <Avatar alt="Carmax Logo" src='src\img\logo\carmax.png'
+            <Avatar alt="Carmax Logo" src={carmaxLogo}
               sx={{
                 width: 80, // 设置图像宽度
                 height: 80, // 设置图像高度
@@ -100,6 +100,7 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
               mt: '34px',
               lineHeight: '20px',
               paddingLeft: '50px', // 在四个方向上都增加 10px 的内边距
+              
             }}
             fontWeight={500}
           >
@@ -107,9 +108,6 @@ export const Logo = ({ dark = false, isLinkStatic = false }) => {
           </Typography>
 
         </Badge>
-
-
-
 
 
       </Link>

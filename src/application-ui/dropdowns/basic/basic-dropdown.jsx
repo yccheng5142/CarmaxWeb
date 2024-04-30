@@ -9,10 +9,23 @@ import { useEffect, useState } from 'react';
 
 
 const BasicDropdown = (props) => {
-  let {labelName,dropDownList} = props
+  console.log('BasicDropdown:', props)
+  let { labelName, dropDownList } = props
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedItem, setSelectedItem] = useState('');
   const open = Boolean(anchorEl);
+
+
+
+  useEffect(() => {
+      console.log('labelName:',labelName)
+      if (props.currentData[labelName] != null) {
+        setSelectedItem(props.currentData[labelName]);
+      } else {
+        setSelectedItem('')
+      }
+    
+  }, []); // 空数组作为依赖项，表示仅在组件挂载时运行一次
 
 
   const handleClick = (event) => {
@@ -21,17 +34,19 @@ const BasicDropdown = (props) => {
 
   const handleClose = (event) => {
     setSelectedItem(event.currentTarget.innerText); // 更新選擇的內容
-  
-    console.log('basic:',event.currentTarget.innerText);
-    
-    
-    if (props.labelName === '品牌'){
-      
+
+    // console.log('basic:',event.currentTarget);
+
+    props.onClickCurrentData(props.labelName, event.currentTarget.innerText);
+
+    if (props.labelName === '品牌') {
+
+
       props.dropDownClick(event.currentTarget.innerText);
-      
-      if (event.currentTarget.innerText === ''){
-        console.log('innerText:');
-      }
+
+      // if (event.currentTarget.innerText === ''){
+      //   console.log('innerText:');
+      // }
 
     }
     setAnchorEl(null);
@@ -41,7 +56,7 @@ const BasicDropdown = (props) => {
   return (
     <>
       <Button
-        id={ labelName}
+        id={labelName}
         variant="outlined"
         color="secondary"
         endIcon={<KeyboardArrowDownTwoToneIcon />}
@@ -54,14 +69,14 @@ const BasicDropdown = (props) => {
           width: '100%', // 设置按钮宽度为父元素的100%
         }}
       >
-        
-        {selectedItem.length ? selectedItem: '請選擇'} {/* 如果没有选择内容，则显示默认文字 */}
+
+        {selectedItem.length ? selectedItem : '請選擇'} {/* 如果没有选择内容，则显示默认文字 */}
         {/* {selectedItem || '請選擇'} 如果沒有選擇內容，則顯示預設文字 */}
       </Button>
 
-      
+
       <Menu
-        id = {labelName}
+        id={labelName}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -69,11 +84,11 @@ const BasicDropdown = (props) => {
           'aria-labelledby': 'settings-button',
         }}
       >
-        { dropDownList.map((item) => (
+        {dropDownList.map((item) => (
           <MenuItem
             // selected={item === '2023'}
             key={item}
-            onClick={handleClose} 
+            onClick={handleClose}
           >
             {item}
           </MenuItem>

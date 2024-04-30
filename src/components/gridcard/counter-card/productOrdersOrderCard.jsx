@@ -200,8 +200,8 @@ function Component(props) {
             variant="contained"
             size="small"
             sx={{
-              fontSize: '1.5em',
-              padding: '10px 40px', // 调整按钮内边距
+              fontSize: '1.4em',
+              padding: '10px 37px', // 调整按钮内边距
               borderRadius: '10px', // 设置按钮的边框半径以呈现圆角矩形形状
               mr: 1, // 添加右侧间距
             }}
@@ -212,8 +212,8 @@ function Component(props) {
             variant="contained"
             size="small"
             sx={{
-              fontSize: '1.5em',
-              padding: '2px 40px', // 调整按钮内边距
+              fontSize: '1.4em',
+              padding: '10px 37px', // 调整按钮内边距
               borderRadius: '10px', // 设置按钮的边框半径以呈现圆角矩形形状
               mr: 1, // 添加右侧间距
             }}
