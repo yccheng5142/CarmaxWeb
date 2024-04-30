@@ -16,20 +16,20 @@ const App = () => {
 };
 
 export const routesOutlets = [
-  {
-    path: '/',
-    element:
-      <Layout>
-        <CustomAuthLoginPage />
-      </Layout>, // 将 App 组件作为路由元素
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-    ]
+  // {
+  //   path: '/',
+  //   element:
+  //     <Layout>
+  //       <CustomAuthLoginPage />
+  //     </Layout>, // 将 App 组件作为路由元素
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: <HomePage />,
+  //     },
+  //   ]
 
-  },
+  // },
 
 
   {

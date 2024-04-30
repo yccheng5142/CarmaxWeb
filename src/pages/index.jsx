@@ -117,7 +117,7 @@ const Page = () => {
         flex={1}
         display="flex"
         flexDirection="column"
-        py={{ xs: 0, sm: 3 }}
+        py={{ xs: 0, sm: 0 }}
         sx={{
 
           backgroundImage: (theme) =>
@@ -193,8 +193,18 @@ const Page = () => {
               ) :
               (
                 <>
-                  {isCarOrderTablesListPageOpen === 0 && <CarOrderCard dropdownCarItems={dropdownCarItems} />}
-                  {isCarOrderTablesListPageOpen === 1 && <ProductOrdersOrderCard dropdownProductItems={dropdownProductItems} />}
+                  {isCarOrderTablesListPageOpen === 0 &&
+                    <CarOrderCard
+                      dropdownCarItems={dropdownCarItems}
+                      currentData={CarOrderCurrentData}
+                      changeCurrentData={onClickCarChangeCurrentData}
+                    />}
+                  {isCarOrderTablesListPageOpen === 1 &&
+                    <ProductOrdersOrderCard
+                      dropdownProductItems={dropdownProductItems}
+                      currentData={ProductOrderCurrentData}
+                      changeCurrentData={onClickProductChangeCurrentData}
+                    />}
                 </>
               )
             }

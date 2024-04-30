@@ -7,7 +7,7 @@ const Component = (props) => {
   return (
     <Stack
       pb={{
-        xs: 1,
+        xs: 0,
         md: 0,
       }}
       justifyContent="space-around"

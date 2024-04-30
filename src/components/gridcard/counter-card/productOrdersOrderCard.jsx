@@ -143,22 +143,34 @@ function Component(props) {
         {/* ============================================= */}
         <table >
           <TdData itemName={props.dropdownProductItems[0].itemName}
-            itemLists={props.dropdownProductItems[0].itemLists}></TdData>
+            itemLists={props.dropdownProductItems[0].itemLists}
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
+            ></TdData>
 
           <TdData itemName={props.dropdownProductItems[1].itemName}
             itemLists={props.dropdownProductItems[1].itemLists}
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
           ></TdData>
 
 
           <TdData itemName={props.dropdownProductItems[2].itemName}
-            itemLists={props.dropdownProductItems[2].itemLists} ></TdData>
+            itemLists={props.dropdownProductItems[2].itemLists}
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData} ></TdData>
 
           <TdData itemName={props.dropdownProductItems[3].itemName}
             itemLists={props.dropdownProductItems[3].itemLists}
-            onClickFunction={carBrandChange}></TdData>
+            onClickFunction={carBrandChange}
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}></TdData>
 
           <TdData itemName={props.dropdownProductItems[4].itemName}
-            itemLists={carModelState} ></TdData>
+            itemLists={carModelState} 
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
+            ></TdData>
           {/* {props.dropdownProductItems.map((carItem) => (
             // <Box
             //   p={1}

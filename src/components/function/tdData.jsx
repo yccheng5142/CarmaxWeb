@@ -2,7 +2,7 @@ import react from "@heroicons/react";
 import { Typography } from "@mui/material";
 import ApplicationUiDropdownsBasic from 'src/application-ui/dropdowns/basic/basic';
 
-const TdData = ({ itemName, itemLists,onClickFunction}) => {
+const TdData = ({ itemName, itemLists,onClickFunction,onClickCurrentData,currentData}) => {
     const dropDownProps = onClickFunction ? { dropDownClick: onClickFunction } : {};
 
     return (
@@ -28,7 +28,8 @@ const TdData = ({ itemName, itemLists,onClickFunction}) => {
               labelName={itemName}
               dropDownList={itemLists}
               {...dropDownProps} // 使用展开运算符将条件逻辑应用到组件属性
-
+              onClickCurrentData={onClickCurrentData}
+              currentData={currentData}
             />
           </td>
 

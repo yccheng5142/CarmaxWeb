@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 
 const BasicDropdown = (props) => {
-  console.log('BasicDropdown:', props)
+  // console.log('BasicDropdown:', props)
   let { labelName, dropDownList } = props
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedItem, setSelectedItem] = useState('');
@@ -18,7 +18,7 @@ const BasicDropdown = (props) => {
 
 
   useEffect(() => {
-      console.log('labelName:',labelName)
+      // console.log('labelName:',labelName)
       if (props.currentData[labelName] != null) {
         setSelectedItem(props.currentData[labelName]);
       } else {

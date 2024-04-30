@@ -24,7 +24,7 @@ function Component(props) {
       setCarModelState(props.dropdownCarItems[2].itemLists);
     }
   }
-  
+
   const gridFunction = () => {
     <Grid
       xs={12}
@@ -107,17 +107,30 @@ function Component(props) {
         {/* ============================================= */}
         <table >
           <TdData itemName={props.dropdownCarItems[0].itemName}
-            itemLists={props.dropdownCarItems[0].itemLists}></TdData>
+            itemLists={props.dropdownCarItems[0].itemLists}
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
+
+          ></TdData>
 
           <TdData itemName={props.dropdownCarItems[1].itemName}
             itemLists={props.dropdownCarItems[1].itemLists}
-            onClickFunction={carBrandChange}></TdData>
+            onClickFunction={carBrandChange}
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
+          ></TdData>
 
           <TdData itemName={props.dropdownCarItems[2].itemName}
-            itemLists={carModelState} ></TdData>
+            itemLists={carModelState}
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
+          ></TdData>
 
           <TdData itemName={props.dropdownCarItems[3].itemName}
-            itemLists={props.dropdownCarItems[3].itemLists}></TdData>
+            itemLists={props.dropdownCarItems[3].itemLists}
+            currentData={props.currentData}
+            onClickCurrentData={props.changeCurrentData}
+          ></TdData>
 
         </table>
         <Box
@@ -154,15 +167,15 @@ function Component(props) {
 
       </Box>
       {/* ============================================= */}
-      
+
 
       <Grid
-          xs={12}
-          sm={6}
-          lg={3}
+        xs={12}
+        sm={6}
+        lg={3}
       >
 
-        <ApplicationUiStackedListsOpenTickets Data= {exampleData}>
+        <ApplicationUiStackedListsOpenTickets Data={exampleData}>
 
         </ApplicationUiStackedListsOpenTickets>
       </Grid>

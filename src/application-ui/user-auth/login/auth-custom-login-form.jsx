@@ -84,6 +84,10 @@ export function AuthCustomLoginForm() {
     }
     setIsPending(false);
   }, []);
+
+
+
+
   const onSubmit = React.useCallback(
     async (values) => {
       setIsPending(true);
@@ -101,6 +105,11 @@ export function AuthCustomLoginForm() {
     },
     [router, setError, checkSession]
   );
+
+
+
+
+  
   const [showPassword, setShowPassword] = useState(false);
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
