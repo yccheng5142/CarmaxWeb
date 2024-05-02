@@ -11,16 +11,19 @@ const user = {
   email: 'example@uifort.com',
 };
 class AuthClient {
+
   async signUp(_) {
     const token = generateToken();
     localStorage.setItem('uifort-authentication', token);
     return {};
   }
+
   async signInWithOAuth(_) {
     return {
       error: 'This functionality is not available in demo mode',
     };
   }
+
   async signInWithPassword(params) {
     const { email, password } = params;
     if (email !== 'example@uifort.com' || password !== 'DemoPass123') {
@@ -32,16 +35,19 @@ class AuthClient {
     localStorage.setItem('uifort-authentication', token);
     return {};
   }
+
   async resetPassword(_) {
     return {
       error: 'This functionality is not available in demo mode',
     };
   }
+
   async updatePassword(_) {
     return {
       error: 'This functionality is not available in demo mode',
     };
   }
+  
   async getUser() {
     const token = localStorage.getItem('uifort-authentication');
     if (!token) {

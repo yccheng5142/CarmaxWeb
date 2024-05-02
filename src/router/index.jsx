@@ -1,6 +1,6 @@
 import { useMediaQuery } from '@mui/material';
 import { lazy, useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate,Navigate } from 'react-router-dom';
 import { Layout } from 'src/layouts';
 // import CustomAuthLoginPage from 'src/pages/auth/custom/login';
 import { Layout as LayoutBase } from "src/layouts/base";
@@ -18,14 +18,19 @@ const App = () => {
 export const routesOutlets = [
   // {
   //   path: '/',
-  //   element:
+  //   element: (
   //     <Layout>
   //       <CustomAuthLoginPage />
-  //     </Layout>, // 将 App 组件作为路由元素
+  //     </Layout>
+  //     ), // 将 App 组件作为路由元素
   //   children: [
   //     {
-  //       index: true,
-  //       element: <HomePage />,
+  //       path: '/',
+  //       element: <Navigate to= "/HomePage" />,
+  //     },
+  //     {
+  //       path: '/HomePage',
+  //       element: <HomePage/>
   //     },
   //   ]
 

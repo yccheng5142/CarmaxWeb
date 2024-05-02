@@ -77,18 +77,40 @@ const dropdownProductItems = [
 
 
 const CarOrderCurrentData = initDataObject();
+
+
 const ProductOrderCurrentData = initDataObject();
+
+
 const Page = () => {
   const theme = useTheme();
   const { t } = useTranslation();
 
   const isComputerScreen = watchWindowSize();
   const [isCarOrderTablesListPageOpen, setIsCarOrderTablesListPageOpen] = useState(0);
+  const [carOrderSearchData, setCarOrderSearchData] = useState({});
+  const [productOrderSearchData, setProductOrderSearchData] = useState({});
+
+
 
 
   // const [ProductrOrderTablesListData, setProductrOrderTablesListData] = useState([{}]);
 
   const [carSearchState, setCarSearchState] = useState(dropdownCarItems);
+
+  const handleCarOrderSearchData = (isSearch) => {
+    if (isSearch === true) {
+      // CarOrderCurrentData
+      console.log(isSearch)
+      console.log(CarOrderCurrentData)
+      
+    } else {
+      console.log(isSearch)
+      // setCarOrderSearchData({})
+    }
+
+
+  }
 
   const handleTabChange = (tabIndex) => {
     setIsCarOrderTablesListPageOpen(tabIndex);
@@ -180,6 +202,8 @@ const Page = () => {
                       dropdownCarItems={dropdownCarItems}
                       currentData={CarOrderCurrentData}
                       changeCurrentData={onClickCarChangeCurrentData}
+                      carOrderSearchData={carOrderSearchData}
+                      handleCarOrderSearchData={handleCarOrderSearchData}
                     />
                   }
                   {isCarOrderTablesListPageOpen === 1 &&
@@ -187,6 +211,7 @@ const Page = () => {
                       dropdownProductItems={dropdownProductItems}
                       currentData={ProductOrderCurrentData}
                       changeCurrentData={onClickProductChangeCurrentData}
+                      productOrderSearchData={ProductOrderSearchData}
 
                     />}
                 </>

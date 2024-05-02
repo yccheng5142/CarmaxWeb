@@ -72,7 +72,7 @@ function Component(props) {
   const { t } = useTranslation();
   const theme = useTheme();
   const [currentPage, setCurrentPagePage] = useState(0);
-  const [totalPage, setTotalPage] = useState(exampleData.length);
+  const [totalPage, setTotalPage] = useState(props.carOrderSearchData.length);
   const [rowsPerPageOrder, setRowsPerPageOrder] = useState([]);
 
 
@@ -114,14 +114,18 @@ function Component(props) {
     setCurrentPagePage(newPage);
   };
   const handleChangePageOrder = () => {
-    if (exampleData.length > 10) {
+    console.log(props.carOrderSearchData)
+    if (Object.keys(props.carOrderSearchData).length === 0) {
+      setRowsPerPageOrder([]);
+
+    } else if (props.carOrderSearchData.length > 10) {
       const startIndex = page * 10;
       const endIndex = startIndex + 10;
-      SliceOrders = exampleData.slice(startIndex, endIndex);
+      SliceOrders = props.carOrderSearchData.slice(startIndex, endIndex);
       setRowsPerPageOrder(SliceOrders);
       // console.log({SliceOrders});
     } else {
-      SliceOrders = exampleData.slice(0, 10);
+      SliceOrders = props.CarOrderSearchData.slice(0, 10);
       setRowsPerPageOrder(SliceOrders);
     }
 
@@ -235,6 +239,7 @@ function Component(props) {
               },
               padding: '0px 20px'
             }}
+            onClick={() => props.handleCarOrderSearchData(true)}
           >
             <Typography variant="h4">搜尋</Typography>
           </Button>

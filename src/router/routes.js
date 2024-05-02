@@ -1,6 +1,7 @@
 export const routes = {
   index: '/',
   dummy: '',
+  HomePage:'/',
   pageExample: '/page-example',
   auth: {
     'custom.login': '/auth/custom/login',

@@ -21,7 +21,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, {lazy, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { RouterLink } from 'src/components/base/router-link';
@@ -31,7 +31,7 @@ import { useRouter } from 'src/hooks/use-router';
 import { routes } from 'src/router/routes';
 import { authClient } from 'src/utils/auth/custom/client';
 import { z as zod } from 'zod';
-
+const HomePage = lazy(() => import('src/pages/index'));
 const oAuthProviders = [
   {
     id: 'google',
@@ -56,12 +56,14 @@ const schema = zod.object({
   }),
 });
 const defaultValues = {
-  email: '123',
-  password: '123',
+  email: '',
+  password: '',
 };
 export function AuthCustomLoginForm() {
   const router = useRouter();
   const { checkSession } = useAuth();
+  
+
   const [isPending, setIsPending] = React.useState(false);
   const {
     register,
@@ -72,11 +74,13 @@ export function AuthCustomLoginForm() {
     defaultValues,
     resolver: zodResolver(schema),
   });
+
   const onAuth = React.useCallback(async (provider) => {
     setIsPending(true);
     const { error } = await authClient.signInWithOAuth({
       provider,
     });
+
     if (error) {
       setIsPending(false);
       // toast.error(error);
@@ -90,6 +94,7 @@ export function AuthCustomLoginForm() {
 
   const onSubmit = React.useCallback(
     async (values) => {
+    
       setIsPending(true);
       const { error } = await authClient.signInWithPassword(values);
       if (error) {
@@ -100,8 +105,13 @@ export function AuthCustomLoginForm() {
         setIsPending(false);
         return;
       }
+
+      console.log("onSubmit:");
       await checkSession();
+      console.log("checkSession:",routes.HomePage);
       router.refresh();
+      // router.push(routes.HomePage);
+      
     },
     [router, setError, checkSession]
   );

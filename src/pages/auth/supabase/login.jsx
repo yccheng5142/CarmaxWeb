@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthSupabaseLoginForm } from 'src/components/application-ui/user-auth/login/auth-supabase-login-form';
+import { AuthSupabaseLoginForm } from 'src/application-ui/user-auth/login/auth-supabase-login-form';
 import { AuthLayout } from 'src/components/auth/auth-layout';
 import { Helmet } from 'src/components/base/helmet';
 import { AuthStrategy } from 'src/utils/auth/strategy';
